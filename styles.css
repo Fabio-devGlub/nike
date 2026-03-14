@@ -1,15 +1,30 @@
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background: #ccee66;
-    color: white;
-    padding: 20px 160px;
-    height: 100vh;
-    font-family: "Noto Sans", sans-serif;
-    overflow: hidden;
-
+    text-decoration: none;
 }
 
+body {
+    font-family: "Noto Sans", sans-serif;
+    background-color: #ccee66;
+    color: #ffffff;
+    padding: 20px 160px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    background-color: #202020;
+    position: absolute;
+    top: 0;
+    left: -550px;
+    transform: rotate(-70deg);
+    width: 100%;
+    height: 150%;
+    z-index: -2;
+}
 
 body::after {
     content: 'Nike';
@@ -17,73 +32,56 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(49, 30, 30);
-    font-size: 250px;
+    font-size: 200px;
     font-weight: bold;
+    color: #000;
+    z-index: -1;
     opacity: 0.5;
 }
 
-body::before {
-    content: '';
-    background: #181616;
-    width: 100%;
-    height: 120%;
-    position: absolute;
-    top: 0;
-    left: -600px;
-    transform: rotate(-70deg);
-}
-
-
-
-
-
-
 .logo {
+    margin-top: 20px;
     width: 80px;
 }
 
-
 h4 {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 h1 {
-    font-size: 80px;
+    font-size: 50px;
+    margin-bottom: 40px;
+    line-height: 70px;
 }
 
 p {
-    font-size: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    font-size: 14px;
 }
 
 .botao-carrinho {
-    background: #a3be52;
+    background-color: #ccee66;
+    color: #000000;
+    font-size: 16px;
     padding: 10px 20px;
     border-radius: 20px;
-    font-size: 16px;
-    color: rgb(13, 10, 10);
-    cursor: pointer;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .botao-carrinho:hover {
     opacity: 0.7;
-
 }
 
-.imagem-tenis {
-    width: 800px;
+.produto-imagem {
+    width: 600px;
     transform: rotate(-25deg);
-    filter: drop-shadow(30px 45px 40px
-    #161616 );
-    transition: 1s;
-
+    filter: drop-shadow(20px 20px 30px hsla(0, 0%, 9%, 0.411));
 }
-.troca-efeito {
+
+.troca-img {
     opacity: 0;
-    transform: rotate(-25deg);
-translate: Y(-30px);    
+    transform: rotate(-25deg) translateY(-30px);
+    transition: all 0.5s;
 }
 
 .caixa-principal {
@@ -91,49 +89,171 @@ translate: Y(-30px);
     justify-content: space-between;
     align-items: center;
     height: 75%;
-    position: relative;
-    z-index: 1;
-
+    margin-top: 20px;
 }
 
 .caixa-texto {
-    max-width: 600px;
+    max-width: 400px;
 }
 
 .caixa-botoes {
-    z-index: 2;
-    position: relative;
     display: flex;
     gap: 10px;
-    
-      
+    margin-top: 20px;
 }
-   
 
 .botoes {
-    width: 80px;
-    height: 80px; 
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    cursor:  pointer;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.botoes:hover {
+    border: solid 3px hsla(0, 0%, 100%, 0.841);
+    transform: translateY(-4px);
 }
 
 .botoes:active {
-    opacity: 0.6;
-}
-.botoes:hover {
-    transform: scale(1.1) rotate(10deg)
-translate(Y -10px);
-    transition: 0.5s;
+    opacity: 0.7;
 }
 
 .verde {
-    background: #ccee66;
-}
-
-.rosa {
-    background: #ff9eb5
+    background-color: #ccee66;
 }
 
 .azul {
-    background: #58cced;
+    background-color: #58cced;
+}
+
+.rosa {
+    background-color: #ff9eb5;
+}
+
+/* ========================= */
+/* RESPONSIVO TABLET */
+/* ========================= */
+
+@media (max-width: 1024px) {
+
+    body {
+        padding: 20px 60px;
+    }
+
+    h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .produto-imagem {
+        width: 450px;
+    }
+
+    .caixa-texto {
+        max-width: 350px;
+    }
+
+    body::after {
+        font-size: 150px;
+        content: 'Nike';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 600px;
+        font-weight: bold;
+        color: #000;
+        z-index: -1;
+        opacity: 0.5;
+    }
+
+    body::before {
+        content: '';
+        background-color: #202020;
+        position: absolute;
+        top: -150px;
+        left: 200px;
+        transform: rotate(-70deg);
+        width: 100%;
+        height: 150%;
+        z-index: -2;
+    }
+}
+
+/* ========================= */
+/* RESPONSIVO CELULAR */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+        overflow: visible;
+    }
+
+    .caixa-principal {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        gap: 40px;
+    }
+
+    .caixa-texto {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 35px;
+        line-height: 45px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 13px;
+        margin-bottom: 40px;
+    }
+
+    .produto-imagem {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .caixa-botoes {
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    body::after {
+        font-size: 90px;
+    }
+
+}
+
+/* ========================= */
+/* CELULAR PEQUENO */
+/* ========================= */
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 28px;
+        line-height: 35px;
+    }
+
+    .produto-imagem {
+        max-width: 260px;
+    }
+
+    .botoes {
+        width: 40px;
+        height: 40px;
+    }
+
+    body::after {
+        font-size: 70px;
+    }
 }

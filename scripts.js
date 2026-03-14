@@ -1,25 +1,16 @@
-let body = document.querySelector("body")
-let tenis = document.querySelector(".imagem-tenis")
-let botao = document.querySelector(".botao-carrinho")
+let body = document.querySelector("body");
+let produtoImagem = document.querySelector(".produto-imagem");
+let btnCarrinho = document.querySelector(".botao-carrinho");
 
+const mudarVisual = (cor, numImg) => {
+    produtoImagem.classList.add("troca-img");
 
-function mudarVisual(cor, imagem){
-    tenis.classList.add("troca-efeito")
-
-    body.style.background = cor
-    
-    botao.style.background = cor
+    body.style.backgroundColor = cor;
+    btnCarrinho.style.backgroundColor = cor;
 
     setTimeout(() => {
-        tenis.src = imagem
-        tenis.classList.remove("troca-efeito")
+        produtoImagem.src = `img/nike${numImg}.png`;
+        produtoImagem.classList.remove("troca-img");
     }, 500);
-
-
-   
-    
-            
-    
-    
 }
 
