@@ -87,7 +87,7 @@ Desenvolvido por **Fabio Aviz**
 https://www.linkedin.com/in/fabioaviz/
 
 💻 Portfólio
-()
+(https://fabio-devglub.github.io/Portifolio/)
 
 ---
 
